@@ -1,0 +1,7 @@
+/_site
+/_etc
+/.sass-cache
+/assets
+/Gemfile.lock
+.DS_Store
+._DS_Store
