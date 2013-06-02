@@ -1,2 +1,215 @@
+
+@charset "utf-8"
+
+@font-face
+  font-family: 'entyporegular'
+  src: url('./entypo/entypo-webfont.eot')
+  src: url('./entypo/entypo-webfont.eot?#iefix') format('embedded-opentype'), url('./entypo/entypo-webfont.woff') format('woff'), url('./entypo/entypo-webfont.ttf') format('truetype'), url('./entypo/entypo-webfont.svg#entyporegular') format('svg')
+  font-weight: normal
+  font-style: normal
+
+
+@font-face
+  font-family: 'entypo_socialregular'
+  src: url('./entypo-social/entypo-social-webfont.eot')
+  src: url('./entypo-social/entypo-social-webfont.eot?#iefix') format('embedded-opentype'), url('./entypo-social/entypo-social-webfont.woff') format('woff'), url('./entypo-social/entypo-social-webfont.ttf') format('truetype'), url('./entypo-social/entypo-social-webfont.svg#entypo_socialregular') format('svg')
+  font-weight: normal
+  font-style: normal
+
+
+
+=entypo($size)
+  font-family: 'entyporegular'
+  font-size: $size
+
+=entypo-social($size)
+  font-family: 'entypo_socialregular'
+  font-size: $size
+
+
+
+html, body, div, img
+  padding: 0
+  margin: 0
+  border: 0
+
+body, input
+  font: 300 16px/20px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
 body
-  font: 400 14px/20px Helvetica, Arial, sans-serif
+  background: #f5f5f5 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeBAMAAADJHrORAAAAFVBMVEX4+Pj09PT29vby8vLz8/P39/f19fUwJqooAAABcElEQVR4Xj3POdqrIBhA4Q9EayeowWBqnFITCalRMTWO+1/C/au7gfc8B8YqX/bZhhVpeU0UHoW3Z02LUYMEMkCDzoK0fFX5YvPOgejjUPh3n5v0fF4evnwYYfKEjHPUwANi/REvs6icCJzFHkTAiT/2JJz244oW9tzgnnlu2rasQg1KvPPpS/LqnneqnwBK0+x9wmVCt2wBqCqZSUSnTzpVIYHF3ArbHbWDU1Hg0G+iQ4bXzBE5pAb+Syrb0hXBZ5E/Wrl1xnkWZQqi0JC6C+/tkpXGMYx8ZlWiUmnpq8QEoiSDlG9uXZiX5oCeiSKEiPHu5xQ74OXiNJnYoOF83FLDNtfxyoVImwJdhwR7edRN6Pvp7h5rBbQoMbRRA3OJfhECim8GISJoKplOPPRT347id3TFcFtWQ1k3aMtsyvfhkM0D8Ph4cv/73LafXDPAVTEUk/FkQtqjdRD0Goz4K2i4/96gEfR50fxdmEWnw/oPdR1VO2uOkRYAAAAASUVORK5CYII=)
+
+html, body
+  overflow-x: hidden
+
+
+
+
+header
+  $top: white
+  $bottom: #ececec
+  background: $bottom
+  background: -moz-linear-gradient(top, $top 0%, $bottom 100%)
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom))
+  background: -webkit-linear-gradient(top, $top 0%, $bottom 100%)
+  background: -o-linear-gradient(top, $top 0%, $bottom 100%)
+  background: -ms-linear-gradient(top, $top 0%, $bottom 100%)
+  background: linear-gradient(to bottom, $top 0%, $bottom 100%)
+  height: 60px
+  position: absolute
+  top: 0
+  box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.75)
+  left: 0
+  right: 0
+  display: none
+  z-index: 400
+
+.clear-btn
+  display: none
+  z-index: 20
+  position: absolute
+  +entypo(40px)
+  $w: 40px
+  width: $w
+  height: $w
+  line-height: $w
+  top: -40px
+  right: 10px
+  text-align: center
+  color: #333
+  text-decoration: none
+  $transition: top 0.25s
+  transition: $transition
+  -webkit-transition: $transition
+  &.fade-in
+    top: 10px
+  &:before
+    content: '✖'
+
+.input-wrapper
+  position: absolute
+  top: 10px
+  z-index: 10
+
+  $s: 0.25s
+  $transition: opacity $s, left $s, right $s
+  transition: $transition
+  -webkit-transition: $transition
+
+  &#from
+    left: 10px
+    right: 50%
+    padding-right: 5px
+    &.expand
+      right: 5px
+    &.fade-out
+      right: 90%
+  &#to
+    right: 10px
+    left: 50%
+    padding-left: 5px
+    &.expand
+      left: 5px
+    &.fade-out
+      left: 90%
+
+  &.fade-out
+    opacity: 0
+  &.expand
+    z-index: 15
+
+input
+  box-sizing: border-box
+  -moz-box-sizing: border-box
+  -webkit-box-sizing: border-box
+  -webkit-appearance: none
+  outline: none
+  width: 100%
+  $h: 20px
+  height: 40px
+  line-height: $h
+  padding: 10px
+  margin: 0
+  border: 0px solid #ccc
+  border-radius: 2px
+  box-shadow: inset 0 0 2px 0px rgba(0, 0, 0, 0.5), inset 0 1px 3px rgba(0,0,0,0.20)
+  
+
+
+#search-results, #directions
+  display: none
+  margin: 70px 10px 10px
+  border-radius: 2px
+  background: white
+  padding: 0 10px
+  border: 1px solid #ddd
+
+.search-result, .nothing-found, .direction
+  display: block
+  text-decoration: none
+  $h: 60px
+  height: $h
+  line-height: $h
+  box-shadow: 0 -1px 1px -1px rgba(0, 0, 0, 0.5)
+  padding: 0 5px
+  color: #555
+  &:first-child    
+    box-shadow: none
+.search-result, .nothing-found
+  &:nth-child(2)
+    box-shadow: none
+.direction
+  padding: 0
+
+.icon
+  width: 50px
+  float: left
+  text-align: center 
+  +entypo(60px)
+  position: relative
+  height: 40px
+  line-height: 40px
+  margin: 10px 0
+  margin-right: 10px
+
+
+  box-shadow: 1px 0px 1px -1px rgba(0, 0, 0, 0.5)
+
+  &:before
+    color: #3498db
+    content: '⬆'
+  &.S:before
+    color: #2ecc71
+    content: '➢'
+    visibility: hidden
+  &.A:before
+    content: '⬆'
+  &.L:before
+    content: ''
+  &.R:before
+    content: '➦'
+  //&.F:after
+  //  color: #e74c3c
+  //  content: '⚑'
+  //&.F:before
+  //  display: none
+
+.length
+  float: right
+  padding: 0 10px
+
+.label
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
+
+
+
+@media screen and (max-width: 500px)
+
+@media only screen and (-webkit-min-device-pixel-ratio:1.5), only screen and (min-device-pixel-ratio:1.5)
+
+  header
+    box-shadow: 0 1px 1px -1px rgba(0, 0, 0, 0.75)
+
+  input
+    box-shadow: inset 0 0 1px 0px rgba(0, 0, 0, 0.5), inset 0 1px 2px rgba(0,0,0,0.20)
